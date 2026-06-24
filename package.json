@@ -1,0 +1,14 @@
+{
+  "name": "bpm-asashiki-com",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check app.js",
+    "preview": "python3 -m http.server 4173 -d .",
+    "deploy": "npx --yes wrangler pages deploy . --project-name=bpm-asashiki-com"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

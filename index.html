@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="死了没？一个用心率、血氧和睡眠数据进行荒诞生存判定的只读仪表盘。"
+    />
+    <title>死了没？</title>
+    <link rel="preconnect" href="https://link.asashiki.com" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="verdict-title">
+        <div class="hero-copy">
+          <p class="eyebrow">bpm.asashiki.com · 生存概率民间鉴定中心</p>
+          <h1 id="verdict-title">死了没？</h1>
+          <p id="verdict-line" class="verdict-line">正在把听诊器插进互联网。</p>
+        </div>
+
+        <div class="monitor" aria-label="实时心电监视器">
+          <canvas id="ecg" width="900" height="360"></canvas>
+          <div class="monitor-overlay">
+            <span id="live-bpm" class="bpm">--</span>
+            <span class="bpm-unit">BPM</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="status-strip" aria-label="核心指标">
+        <article>
+          <span class="label">判定</span>
+          <strong id="status-word">读取中</strong>
+          <small id="status-note">等待心脏签收回执</small>
+        </article>
+        <article>
+          <span class="label">24h 均心率</span>
+          <strong id="avg-heart">--</strong>
+          <small>bpm，不含灵魂震荡</small>
+        </article>
+        <article>
+          <span class="label">最新心率</span>
+          <strong id="latest-heart">--</strong>
+          <small id="latest-heart-time">没有遗言时间戳</small>
+        </article>
+        <article>
+          <span class="label">血氧</span>
+          <strong id="oxygen">--</strong>
+          <small>还能被氧化，暂未入土</small>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="panel diagnosis">
+          <div class="panel-head">
+            <p class="eyebrow">验尸草稿</p>
+            <h2>目前结论</h2>
+          </div>
+          <p id="diagnosis-text" class="large-text">
+            法医正在翻 API 文档，场面非常专业。
+          </p>
+          <div id="reasons" class="reason-list" aria-label="判定依据"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <p class="eyebrow">睡眠债</p>
+            <h2>棺材体验卡</h2>
+          </div>
+          <div class="sleep-meter">
+            <div id="sleep-fill" class="sleep-fill"></div>
+          </div>
+          <p id="sleep-text" class="large-text">正在寻找前几天的睡眠残骸。</p>
+          <div id="sleep-records" class="mini-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <p class="eyebrow">活动证据</p>
+            <h2>案发现场</h2>
+          </div>
+          <p id="device-live" class="large-text">正在盘问设备。</p>
+          <div id="device-list" class="mini-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <p class="eyebrow">原始脉搏</p>
+            <h2>最后几跳</h2>
+          </div>
+          <div id="pulse-list" class="pulse-list"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
