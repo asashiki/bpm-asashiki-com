@@ -126,9 +126,10 @@ function renderSleep(summary168, sleepRecords) {
   $("sleep-fill").style.width = `${percent}%`;
 
   if (sleep) {
+    const recordedAverage = sleep.sum / 7;
     setText(
       "sleep-text",
-      `最近一次睡了 ${minutesText(latest)}。七天平均 ${minutesText(sleep.avg)}，死亡平替服务暂时由床铺承包。`,
+      `最近一次睡了 ${minutesText(latest)}。七天只有 ${sleep.count} 条睡眠记录，总计 ${minutesText(sleep.sum)}；摊到每天是 ${minutesText(recordedAverage)}。不是睡够了，是缺勤被平均数粉饰了。`,
     );
   } else {
     setText("sleep-text", "七天内没有睡眠样本。不是永生，是日志里已经开始有都市传说味。");
